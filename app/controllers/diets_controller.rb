@@ -26,11 +26,15 @@ class DietsController < ApplicationController
 
   # PATCH/PUT /diets/1
   def update
-    if @diet.update(diet_params)
-      render json: @diet
-    else
-      render json: @diet.errors, status: :unprocessable_entity
-    end
+    # if @diet.update(diet_params)
+    #   render json: @diet
+    # else
+    #   render json: @diet.errors, status: :unprocessable_entity
+    # end
+     @diet = Account.find(params[:id])
+     @diet.update(name: params["diet"]["name"]["age"]["height"]["diet_type"]["start_weight"]["lost_weight"]["duration"])
+     @diet.save
+     render json: @diet
   end
 
   # DELETE /diets/1
